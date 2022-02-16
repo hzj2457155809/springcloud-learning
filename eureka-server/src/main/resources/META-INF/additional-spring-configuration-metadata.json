@@ -1,0 +1,18 @@
+{
+  "properties": [
+    {
+      "name": "enable-self-preservation",
+      "type": "java.lang.String",
+      "description": "Description for enable-self-preservation."
+    },
+    {
+      "name": "server",
+      "type": "java.lang.String",
+      "description": "Description for server."
+    },
+    {
+      "name": "client.fetch-registry",
+      "type": "java.lang.String",
+      "description": "Description for client.fetch-registry."
+    }
+  ] }

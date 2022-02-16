@@ -1,0 +1,21 @@
+server:
+  port: 9201
+service-url:
+  user-service: http://localhost:8201
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: remoteaddr_route
+          uri: ${service-url.user-service}
+          predicates:
+            - RemoteAddr=192.168.8.44/24 #从指定远程地址发起的请求可以匹配该路由
+            #- After=2019-09-24T16:30:00+08:00[Asia/Shanghai] #在指定时间之后的请求会匹配该路由
+            #- Before=2019-09-24T16:30:00+08:00[Asia/Shanghai] #在指定时间之前的请求会匹配该路由
+            #- Between=2019-09-24T16:30:00+08:00[Asia/Shanghai], 2019-09-25T16:30:00+08:00[Asia/Shanghai] #在指定时间区间内的请求会匹配该路由
+            #- Cookie=username,alex #带有指定Cookie的请求会匹配该路由
+            #- Header=X-Request-Id, \d+ #带有指定请求头的请求会匹配该路由。
+            #- Host=**.alexhuang.com #带有指定Host的请求会匹配该路由
+            #- Method=GET #发送指定方法的请求会匹配该路由
+            #- Path=/user/{id} #发送指定路径的请求会匹配该路由
+            #- Query=username #带指定查询参数的请求可以匹配该路由
